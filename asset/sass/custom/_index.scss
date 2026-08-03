@@ -5,4 +5,11 @@
 h1, h2, h3, h4, h5, h6 {
     color: $primary-color;
     font-family: $font-family-title;
+    margin: 0 0 0 0;
+}
+
+p {
+    font-family: $font-family-body;
+    font-size: 1rem;
+    line-height: 1.5;
 }
