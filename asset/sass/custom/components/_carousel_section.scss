@@ -1,61 +1,212 @@
 div.carousel-container {
     width: 100%;
     height: calc(100vh - 120px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     position: relative;
+    overflow: hidden;
+
 
     div.image-card-carousel {
-        display: none;
+        position: absolute;
+        inset: 0;
+
         width: 100%;
-        height: 100%;  
+        height: 100%;
+
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        flex-grow: 1;
+
+        /*
+         * Estado normal:
+         * la tarjeta está fuera de la escena.
+         */
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translate3d(0, 0, 0);
+
+        will-change: transform, opacity;
+
+        /*
+         * NO animamos visibility.
+         * Solo transform y opacity.
+         */
+        transition:
+            transform 1s cubic-bezier(0.65, 0, 0.35, 1),
+            opacity 1s ease;
+
+
+        /*
+         * ---------------------------------------------
+         * IMAGEN ACTUAL
+         * ---------------------------------------------
+         */
+        &.active {
+            opacity: 1;
+            visibility: visible;
+
+            transform: translate3d(0, 0, 0);
+
+            z-index: 2;
+        }
+
+
+        /*
+         * ---------------------------------------------
+         * IMAGEN QUE ENTRA DESDE LA DERECHA
+         * ---------------------------------------------
+         *
+         * Este estado SOLO sirve para colocarla
+         * inicialmente fuera de la pantalla.
+         */
+        &.enter-right {
+            opacity: 1;
+            visibility: visible;
+
+            transform: translate3d(100%, 0, 0);
+
+            z-index: 3;
+        }
+
+
+        /*
+         * ---------------------------------------------
+         * IMAGEN QUE ENTRA DESDE LA IZQUIERDA
+         * ---------------------------------------------
+         */
+        &.enter-left {
+            opacity: 1;
+            visibility: visible;
+
+            transform: translate3d(-100%, 0, 0);
+
+            z-index: 3;
+        }
+
+
+        /*
+         * ---------------------------------------------
+         * IMAGEN QUE SALE HACIA LA IZQUIERDA
+         * ---------------------------------------------
+         */
+        &.leaving-left {
+            opacity: 1;
+            visibility: visible;
+
+            transform: translate3d(-100%, 0, 0);
+
+            z-index: 2;
+        }
+
+
+        /*
+         * ---------------------------------------------
+         * IMAGEN QUE SALE HACIA LA DERECHA
+         * ---------------------------------------------
+         */
+        &.leaving-right {
+            opacity: 1;
+            visibility: visible;
+
+            transform: translate3d(100%, 0, 0);
+
+            z-index: 2;
+        }
+
+
+        /*
+         * ---------------------------------------------
+         * ESTADO FINAL DE ENTRADA
+         * ---------------------------------------------
+         *
+         * El target pasa de:
+         *
+         * translateX(100%)
+         *
+         * a:
+         *
+         * translateX(0)
+         *
+         * SIN cambiar de elemento ni duplicarlo.
+         */
+        &.enter-right.active,
+        &.enter-left.active {
+            opacity: 1;
+            visibility: visible;
+
+            transform: translate3d(0, 0, 0);
+
+            z-index: 3;
+        }
     }
 
-    div.image-card-carousel.active {
-        display: block;
-    }
+
+    /*
+     * IMÁGENES
+     */
 
     div.carousel-1 {
         background-image: url('../img/custom/carousel1.jpg');
     }
+
     div.carousel-2 {
         background-image: url('../img/custom/carousel2.jpg');
     }
+
     div.carousel-3 {
         background-image: url('../img/custom/carousel3.jpg');
     }
+
     div.carousel-4 {
         background-image: url('../img/custom/carousel4.jpg');
     }
 
+
+    /*
+     * BOTONES
+     */
+
     div.btn-carousel-container {
         position: absolute;
+
         bottom: 20px;
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        z-index: 10;
+
         display: flex;
         justify-content: center;
         gap: 10px;
 
+
         div.btn-carousel {
             width: 15px;
             height: 15px;
+
             border-radius: 50%;
             border: none;
+
             background-color: rgba($primary-color, 0.5);
+
             cursor: pointer;
-            transition: background-color 0.3s ease;
+
+            transition:
+                background-color 0.3s ease,
+                transform 0.3s ease;
+
 
             &:hover {
                 background-color: rgba($primary-color, 0.8);
+                transform: scale(1.1);
             }
-        }
 
-        div.btn-carousel.active {
-            background-color: $primary-color;
+
+            &.active {
+                background-color: $primary-color;
+            }
         }
     }
 }
