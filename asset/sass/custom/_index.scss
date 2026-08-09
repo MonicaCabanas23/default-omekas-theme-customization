@@ -1,6 +1,7 @@
 @use 'variables' as *;
 @import 'components/main_section';
 @import 'components/carousel_section';
+@import 'components/hero_section';
 
 h1, h2, h3, h4, h5, h6 {
     color: $primary-color;

@@ -1,0 +1,82 @@
+div.hero {
+    width: 100%;
+    height: auto;
+
+    text-align: left;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    div.hero-text, div.hero-image {
+        grid-column: span 1;
+    }
+
+    div.hero-image-container {
+        height: 50vh;
+
+        div.hero-image {
+            height: 100%;
+    
+            background-image: url('../img/custom/hero.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+    
+            position: relative;
+    
+            div.quote-container {
+                width: 100%;
+                height: 100%;
+    
+                background: #FFFF;
+                background: linear-gradient(180deg,rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba($primary-color, 1) 100%);
+                color: white;
+                padding: 10px;
+    
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                flex-direction: column;
+    
+                p.quote {
+                    margin: 0;
+                    font-size: 1rem;
+                    font-style: italic;
+                }
+    
+                p.author {
+                    margin: 0;
+                    font-size: 0.8rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+
+    // Pantallas medianas (>= 40rem) -> 2 columnas de igual tamaño (50% / 50%)
+    @media (min-width: 40rem) {
+        grid-template-columns: repeat(2, 1fr);
+
+        div.hero-text,
+        div.hero-image-container {
+            grid-column: span 1;
+        }
+    }
+
+    // Pantallas grandes (>= 80rem) -> 4 columnas de igual tamaño (25% / 25% / 25% / 25%)
+    @media (min-width: 80rem) {
+        grid-template-columns: repeat(4, 1fr);
+
+        div.hero-text {
+            grid-column: span 3;
+        }
+
+        div.hero-image-container {
+            grid-column: span 1;
+        }
+        
+    }
+}
