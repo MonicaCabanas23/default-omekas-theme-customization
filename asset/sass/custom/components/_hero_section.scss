@@ -3,18 +3,21 @@ div.hero {
     height: auto;
 
     text-align: left;
-    position: relative;
 
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     gap: 2rem;
 
     div.hero-text, div.hero-image {
-        grid-column: span 1;
+        flex: 1;
     }
 
     div.hero-image-container {
         height: 50vh;
+        width: 371px;
 
         div.hero-image {
             height: 100%;
@@ -44,12 +47,12 @@ div.hero {
                     margin: 0;
                     font-size: 1rem;
                     font-style: italic;
+                    font-family: $font-family-title;
                 }
     
                 p.author {
                     margin: 0;
                     font-size: 0.8rem;
-                    font-weight: bold;
                 }
             }
         }
@@ -57,26 +60,26 @@ div.hero {
 
 
     // Pantallas medianas (>= 40rem) -> 2 columnas de igual tamaño (50% / 50%)
-    @media (min-width: 40rem) {
-        grid-template-columns: repeat(2, 1fr);
+    // @media (min-width: 40rem) {
+    //     grid-template-columns: repeat(2, 1fr);
 
-        div.hero-text,
-        div.hero-image-container {
-            grid-column: span 1;
-        }
-    }
+    //     div.hero-text,
+    //     div.hero-image-container {
+    //         grid-column: span 1;
+    //     }
+    // }
 
-    // Pantallas grandes (>= 80rem) -> 4 columnas de igual tamaño (25% / 25% / 25% / 25%)
-    @media (min-width: 80rem) {
-        grid-template-columns: repeat(4, 1fr);
+    // // Pantallas grandes (>= 80rem) -> 4 columnas de igual tamaño (25% / 25% / 25% / 25%)
+    // @media (min-width: 80rem) {
+    //     grid-template-columns: repeat(4, 1fr);
 
-        div.hero-text {
-            grid-column: span 3;
-        }
+    //     div.hero-text {
+    //         grid-column: span 3;
+    //     }
 
-        div.hero-image-container {
-            grid-column: span 1;
-        }
+    //     div.hero-image-container {
+    //         grid-column: span 1;
+    //     }
         
-    }
+    // }
 }
