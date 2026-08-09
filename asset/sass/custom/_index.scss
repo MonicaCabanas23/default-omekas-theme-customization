@@ -13,3 +13,27 @@ p {
     font-size: 1rem;
     line-height: 1.5;
 }
+
+#content {
+    padding: 0px !important;
+}
+
+div.blocks-inner {
+    .block:nth-child(odd) {
+        background-color: $odd-background-color;
+    }
+
+    .block:nth-child(even) {
+        background-color: $even-background-color;
+    }
+}
+
+div.block-html {
+    padding: 0 60px 30px;
+    width: 100%;
+    margin: 0 auto !important;
+}
+
+div#search, ul.navigation {
+    visibility: hidden;
+}

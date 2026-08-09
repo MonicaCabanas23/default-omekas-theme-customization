@@ -1,16 +1,8 @@
-hr.archivo-separator {
-    border: none;
-    height: 1px;
-    background-color: $accent-color;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-}
-
 div.image-cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 75px);
     gap: 1rem;
 
     div.image-card {
@@ -24,25 +16,33 @@ div.image-cards-container {
         border-radius: 1%;
         
         &:hover {
-            transform: scale(1.025);
-            transition: transform 0.3s ease;
-
             p.image-card-text {
                 opacity: 1;
             }
         }
 
         p.image-card-text {
+            width: 100%;
+            height: 100%;
+
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: rgba($primary-color, 0.8);
-            color: white;
-            text-align: center;
             padding: 10px;
             margin: 0;
+            
+            background-color: rgba($primary-color, 0.8);
+            color: white;
             opacity: 0;
+            
+            text-align: center;
+            font-weight: bold;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
             transition: opacity 0.3s ease;
         }
     }
@@ -69,5 +69,16 @@ div.image-cards-container {
 
     div.cartas {
         background-image: url('../img/custom/cartas.jpg');
+    }
+}
+
+@media (max-width: 768px) {
+    div.image-cards-container {
+        grid-template-columns: 1fr;
+        height: auto;
+
+        div.image-card {
+            height: 200px;
+        }
     }
 }
