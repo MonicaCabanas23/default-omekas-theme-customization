@@ -2,10 +2,7 @@
 @import 'components/main_section';
 @import 'components/carousel_section';
 @import 'components/hero_section';
-
-header {
-    margin: 0 !important;
-}
+@import 'components/header';
 
 h1, h2, h3, h4, h5, h6 {
     color: $primary-color;
@@ -64,6 +61,7 @@ div.block-html {
     margin: 0 auto !important;
 }
 
-div#search, ul.navigation {
-    visibility: hidden;
+div#search, nav#top-nav {
+    // visibility: hidden;
+    display: none;
 }

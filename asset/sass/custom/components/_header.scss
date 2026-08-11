@@ -1,0 +1,13 @@
+header {
+    margin: 0 !important;
+    border-bottom: 2px solid $accent-color;
+
+    h1.site-title {
+        background-color: $primary-color;
+
+        a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+    }
+}
