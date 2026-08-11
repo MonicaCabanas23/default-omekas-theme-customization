@@ -3,6 +3,7 @@
 @import 'components/carousel_section';
 @import 'components/hero_section';
 @import 'components/header';
+@import 'components/footer';
 
 h1, h2, h3, h4, h5, h6 {
     color: $primary-color;
@@ -62,6 +63,5 @@ div.block-html {
 }
 
 div#search, nav#top-nav {
-    // visibility: hidden;
     display: none;
 }
