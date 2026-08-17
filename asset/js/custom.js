@@ -10,14 +10,38 @@
         let isAnimating = false;
 
 
+        /*
+         * -----------------------------------------
+         * INICIALIZAR CAROUSEL
+         * -----------------------------------------
+         *
+         * La primera imagen y el primer botón
+         * comienzan activos.
+         */
+
+        const $firstBtn = $btnCarousel.first();
+        const $firstCard = $cards.first();
+
+        $firstBtn.addClass('active');
+        $firstCard.addClass('active');
+
+
+        /*
+         * -----------------------------------------
+         * CLICK EN BOTONES
+         * -----------------------------------------
+         */
+
         $btnCarousel.on('click', function() {
 
-            // No permitir otra transición mientras la actual termina
+            // No permitir otra transición mientras
+            // la actual termina.
             if (isAnimating) {
                 return;
             }
 
-            // Si ya estamos en esa imagen, no hacer nada
+
+            // Si ya estamos en esa imagen, no hacer nada.
             if ($(this).hasClass('active')) {
                 return;
             }
@@ -43,7 +67,7 @@
                 Number(
                     $(this)
                         .attr('class')
-                        .match(/btn-carousel-(\d+)/)?.[1] || 0
+                        ?.match(/btn-carousel-(\d+)/)?.[1] || 0
                 );
 
 
@@ -85,7 +109,7 @@
 
             /*
              * -----------------------------------------
-             * LIMPIAR CUALQUIER ESTADO ANTERIOR
+             * LIMPIAR ESTADOS ANTERIORES
              * -----------------------------------------
              */
 
@@ -102,22 +126,19 @@
 
             if (goingNext) {
 
-                // B viene desde la derecha
                 $targetCard.addClass('enter-right');
 
             } else {
 
-                // B viene desde la izquierda
                 $targetCard.addClass('enter-left');
+
             }
 
 
             /*
-             * MUY IMPORTANTE:
-             *
-             * Forzamos al navegador a aplicar realmente
-             * translateX(100%) / translateX(-100%)
-             * antes de iniciar la animación.
+             * -----------------------------------------
+             * FORZAR REFLOW
+             * -----------------------------------------
              */
 
             void $targetCard[0].offsetWidth;
@@ -136,6 +157,7 @@
             } else {
 
                 $currentCard.addClass('leaving-right');
+
             }
 
 
@@ -143,16 +165,6 @@
              * -----------------------------------------
              * 3. HACER ENTRAR B
              * -----------------------------------------
-             *
-             * Aquí es donde ocurre la transición.
-             *
-             * B pasa de:
-             *
-             * translateX(100%)
-             *
-             * a:
-             *
-             * translateX(0)
              */
 
             $targetCard.addClass('active');
@@ -178,17 +190,11 @@
 
             setTimeout(function() {
 
-                /*
-                 * A deja de existir visualmente.
-                 */
                 $currentCard.removeClass(
                     'active leaving-left leaving-right'
                 );
 
 
-                /*
-                 * B queda como única imagen activa.
-                 */
                 $targetCard.removeClass(
                     'enter-right enter-left'
                 );
@@ -197,9 +203,6 @@
                 $targetCard.addClass('active');
 
 
-                /*
-                 * Ya podemos permitir otra transición.
-                 */
                 isAnimating = false;
 
             }, transitionDuration);
