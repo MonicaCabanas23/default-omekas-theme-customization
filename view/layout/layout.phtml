@@ -85,121 +85,103 @@ if (is_dir($dirPath)) {
 
             <div class="blocks-inner">
                 <!-- Hero Section -->
-                <div class="hero block block-html">
-                    <div class="hero-text">
-                        <p class="muted monospace before-accent-bar">Fondo Documental</p>
-    
-                        <h1>Fondo Documental Ítalo López Vallecillos</h1>
-    
-                        <p>Este archivo digital preserva y difunde la obra de Ítalo López Vallecillos (1932&ndash;1986), poeta, ensayista, historiador y editor salvadoreño, figura central de las letras centroamericanas del siglo XX.</p>
-    
-                        <p class="muted">El repositorio reúne manuscritos, cartas, fotografías, primeras ediciones y materiales de archivo pertenecientes al fondo documental donado al Centro de Recursos para el Aprendizaje y la Investigación P. Florentino Idoate, S.J.</p>
+                <section class="block block-html">
+                    <div class="hero-container">
+                        <div class="hero-text">
+                            <p class="muted monospace before-accent-bar">Fondo Documental</p>
+        
+                            <h1>Fondo Documental Ítalo López Vallecillos</h1>
+        
+                            <p>Este archivo digital preserva y difunde la obra de Ítalo López Vallecillos (1932&ndash;1986), poeta, ensayista, historiador y editor salvadoreño, figura central de las letras centroamericanas del siglo XX.</p>
+        
+                            <p class="muted">El repositorio reúne manuscritos, cartas, fotografías, primeras ediciones y materiales de archivo pertenecientes al fondo documental donado al Centro de Recursos para el Aprendizaje y la Investigación P. Florentino Idoate, S.J.</p>
+                        </div>
+        
+                        <div class="hero-image-container">
+                            <?php echo $this->htmlElement('img')
+                                ->setAttribute('src', $this->assetUrl('img/custom/hero.jpeg'))
+                                ->setAttribute('class', 'hero-image');
+                            ?>
+                        </div>
                     </div>
-    
-                    <div class="hero-image-container">
-                        <?php echo $this->htmlElement('img')
-                            ->setAttribute('src', $this->assetUrl('img/custom/hero.jpeg'))
-                            ->setAttribute('class', 'hero-image');
-                        ?>
-                    </div>
-                </div>
+                </section>
     
                 <!-- Carousel Section -->
-                <div class="carousel-container block block-html">
-                    <?php foreach ($filenames as $index => $filename): ?>
-                        <figure class="image-card-carousel carousel-<?php echo ($index + 1); ?>">
-                            <?php
-                                echo $this->htmlElement('img')->setAttribute('src', $this->assetUrl('img/custom/carousel/' . $filename));
-                            ?>
-                        </figure>
-                    <?php endforeach; ?>
-                    <div class="btn-carousel-container">
-                        <?php foreach ($filenames as $index => $value): ?>
-                            <div class="btn-carousel btn-carousel-<?= $index + 1 ?>"></div>
+                <section class="block block-html">
+                    <div class="carousel-container">
+                        <?php foreach ($filenames as $index => $filename): ?>
+                            <figure class="image-card-carousel carousel-<?php echo ($index + 1); ?>">
+                                <?php
+                                    echo $this->htmlElement('img')->setAttribute('src', $this->assetUrl('img/custom/carousel/' . $filename));
+                                ?>
+                            </figure>
                         <?php endforeach; ?>
+                        <div class="btn-carousel-container">
+                            <?php foreach ($filenames as $index => $value): ?>
+                                <div class="btn-carousel btn-carousel-<?= $index + 1 ?>"></div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
-                </div>
+                </section>
                 
                 <!-- Archive Section -->
-                <div class="archive block block-html">
-                    <h2>Archivo</h2>
-            
-                    <div class="image-cards-container">
-                        <div class="image-card-container">
-                            <?php
-                                echo $this->htmlElement('img')
-                                ->setAttribute('src', $this->assetUrl('img/custom/fotografias.jpg'))
-                                ->setAttribute('class', 'image-card fotografias');
-                            ?>
-                            <p class="image-card-text">Fotografías</p>
+                <section class="block block-html">
+                    <div class="archive-container">
+                        <h2>Archivo</h2>
+                
+                        <div class="image-cards-container">
+                            <div class="image-card-container">
+                                <?php
+                                    echo $this->htmlElement('img')
+                                    ->setAttribute('src', $this->assetUrl('img/custom/fotografias.jpg'))
+                                    ->setAttribute('class', 'image-card fotografias');
+                                ?>
+                                <p class="image-card-text">Fotografías</p>
+                            </div>
+                            <div class="image-card-container">
+                                <?php
+                                    echo $this->htmlElement('img')
+                                    ->setAttribute('src', $this->assetUrl('img/custom/manuscritos.jpg'))
+                                    ->setAttribute('class', 'image-card manuscritos');
+                                ?>
+                                <p class="image-card-text">Manuscritos y textos mecanográficos</p>
+                            </div>
+                            <div class="image-card-container">
+                                <?php
+                                    echo $this->htmlElement('img')
+                                    ->setAttribute('src', $this->assetUrl('img/custom/recortes.jpg'))
+                                    ->setAttribute('class', 'image-card recortes');
+                                ?>
+                                <p class="image-card-text">Recortes de periódicos</p>
+                            </div>
+                            <div class="image-card-container">
+                                <?php
+                                    echo $this->htmlElement('img')
+                                    ->setAttribute('src', $this->assetUrl('img/custom/articulos.jpg'))
+                                    ->setAttribute('class', 'image-card articulos');
+                                ?>
+                                <p class="image-card-text">Artículos de periódicos</p>
+    
+                            </div>
+                            <div class="image-card-container">
+                                <?php
+                                    echo $this->htmlElement('img')
+                                    ->setAttribute('src', $this->assetUrl('img/custom/postales.jpg'))
+                                    ->setAttribute('class', 'image-card postales');
+                                ?>
+                                <p class="image-card-text">Postales</p>
+                            </div>
+                            <div class="image-card-container">
+                                <?php
+                                    echo $this->htmlElement('img')
+                                    ->setAttribute('src', $this->assetUrl('img/custom/cartas.jpg'))
+                                    ->setAttribute('class', 'image-card cartas');
+                                ?>
+                                <p class="image-card-text">Cartas</p>
+                            </div>
                         </div>
-                        <div class="image-card-container">
-                            <?php
-                                echo $this->htmlElement('img')
-                                ->setAttribute('src', $this->assetUrl('img/custom/manuscritos.jpg'))
-                                ->setAttribute('class', 'image-card manuscritos');
-                            ?>
-                            <p class="image-card-text">Manuscritos y textos mecanográficos</p>
-                        </div>
-                        <div class="image-card-container">
-                            <?php
-                                echo $this->htmlElement('img')
-                                ->setAttribute('src', $this->assetUrl('img/custom/recortes.jpg'))
-                                ->setAttribute('class', 'image-card recortes');
-                            ?>
-                            <p class="image-card-text">Recortes de periódicos</p>
-                        </div>
-                        <div class="image-card-container">
-                            <?php
-                                echo $this->htmlElement('img')
-                                ->setAttribute('src', $this->assetUrl('img/custom/articulos.jpg'))
-                                ->setAttribute('class', 'image-card articulos');
-                            ?>
-                            <p class="image-card-text">Artículos de periódicos</p>
-
-                        </div>
-                        <div class="image-card-container">
-                            <?php
-                                echo $this->htmlElement('img')
-                                ->setAttribute('src', $this->assetUrl('img/custom/postales.jpg'))
-                                ->setAttribute('class', 'image-card postales');
-                            ?>
-                            <p class="image-card-text">Postales</p>
-                        </div>
-                        <div class="image-card-container">
-                            <?php
-                                echo $this->htmlElement('img')
-                                ->setAttribute('src', $this->assetUrl('img/custom/cartas.jpg'))
-                                ->setAttribute('class', 'image-card cartas');
-                            ?>
-                            <p class="image-card-text">Cartas</p>
-                        </div>
-            
-                        <!-- <div class="image-card fotografias">
-                            
-                        </div>
-            
-                        <div class="image-card manuscritos">
-                            
-                        </div>
-            
-                        <div class="image-card recortes">
-                            
-                        </div>
-            
-                        <div class="image-card articulos">
-                            
-                        </div>
-            
-                        <div class="image-card postales">
-                            
-                        </div>
-            
-                        <div class="image-card cartas">
-                            
-                        </div> -->
                     </div>
-                </div>
+                </section>
             </div>
         </div>
 

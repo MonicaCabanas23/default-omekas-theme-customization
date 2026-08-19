@@ -52,8 +52,8 @@ div.blocks-inner {
     }
 }
 
-div.block-html {
-    padding: 0 60px 30px;
+section.block-html {
+    padding: 0 60px;
     width: 100%;
     margin: 0 auto !important;
 }
@@ -66,13 +66,4 @@ footer, #content {
 
 div#search, nav#top-nav {
     display: none;
-}
-
-footer {
-    text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }

@@ -1,11 +1,25 @@
+.archive-container {
+    width: 75%;
+    margin: 0 auto;
+    padding: 30px 0;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
 div.image-cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+    
     width: 100%;
     height: auto;
-    gap: 1rem;
 
     div.image-card-container {
+        height: 30rem;
+
         cursor: pointer;
         position: relative;
         border-radius: 1%;
@@ -47,30 +61,6 @@ div.image-cards-container {
                 opacity: 1;
             }
         }
-    }
-
-    div.fotografias {
-        background-image: url('../img/custom/fotografias.jpg');
-    }
-
-    div.manuscritos {
-        background-image: url('../img/custom/manuscritos.jpg');
-    }
-
-    div.recortes {
-        background-image: url('../img/custom/recortes.jpg');
-    }
-
-    div.articulos {
-        background-image: url('../img/custom/articulos.jpg');
-    }
-
-    div.postales {
-        background-image: url('../img/custom/postales.jpg');
-    }
-
-    div.cartas {
-        background-image: url('../img/custom/cartas.jpg');
     }
 }
 
