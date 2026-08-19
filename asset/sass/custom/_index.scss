@@ -42,10 +42,6 @@ p {
     }
 }
 
-#content {
-    padding: 0px !important;
-}
-
 div.blocks-inner {
     .block:nth-child(odd) {
         background-color: $odd-background-color;
@@ -60,6 +56,12 @@ div.block-html {
     padding: 0 60px 30px;
     width: 100%;
     margin: 0 auto !important;
+}
+
+footer, #content {
+    max-width: 100vw !important;
+    padding: 0px !important;
+    margin: 0px !important;
 }
 
 div#search, nav#top-nav {

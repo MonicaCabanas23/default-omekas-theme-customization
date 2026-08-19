@@ -1,6 +1,6 @@
 div.hero {
     width: 100%;
-    height: 50vh;
+    min-height: 50vh;
 
     text-align: left;
 
@@ -18,37 +18,16 @@ div.hero {
     div.hero-image-container {
         height: 50vh;
         width: 371px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
         
         img.hero-image {
             height: 100%;
-            margin: auto;
 
             object-fit: contain;
         }
     }
 
-
-    // Pantallas medianas (>= 40rem) -> 2 columnas de igual tamaño (50% / 50%)
-    // @media (min-width: 40rem) {
-    //     grid-template-columns: repeat(2, 1fr);
-
-    //     div.hero-text,
-    //     div.hero-image-container {
-    //         grid-column: span 1;
-    //     }
-    // }
-
-    // // Pantallas grandes (>= 80rem) -> 4 columnas de igual tamaño (25% / 25% / 25% / 25%)
-    // @media (min-width: 80rem) {
-    //     grid-template-columns: repeat(4, 1fr);
-
-    //     div.hero-text {
-    //         grid-column: span 3;
-    //     }
-
-    //     div.hero-image-container {
-    //         grid-column: span 1;
-    //     }
-        
-    // }
 }
