@@ -11,7 +11,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 0 0;
 }
 
-p {
+p, a {
     font-family: $font-family-body;
     font-size: 1rem;
     line-height: 1.5;
@@ -21,7 +21,7 @@ p {
     color: $muted-color;
 }
 
-.monospace {
+.monospace {    
     font-family: $font-family-monospace;
 }
 

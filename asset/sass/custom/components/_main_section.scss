@@ -31,7 +31,7 @@ div.image-cards-container {
             object-fit: cover;
         }
 
-        p.image-card-text {
+        div.image-card-overlay {
             width: 100%;
             height: 100%;
     
@@ -45,19 +45,37 @@ div.image-cards-container {
             background-color: rgba($primary-color, 0.8);
             color: white;
             opacity: 0;
-            
-            text-align: center;
-            font-weight: bold;
-    
+
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            
+            gap: 2rem;
+
             transition: opacity 0.3s ease;
+
+            a.image-card-link {
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 10px 20px;
+                border: 2px solid white;
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: white;
+                    color: $primary-color;
+                }
+            }
+    
+            p.image-card-text {
+                text-align: center;
+                font-weight: bold;
+            }
         }
 
         &:hover {
-            p.image-card-text {
+            div.image-card-overlay {
                 opacity: 1;
             }
         }
